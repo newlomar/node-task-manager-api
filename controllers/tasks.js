@@ -11,7 +11,7 @@ const getTask = (req, res) => {
 }
 
 const updateTask = (req, res) => {
-    res.send('update task')
+    res.json({})
 }
 
 const deleteTask = (req, res) => {
