@@ -15,7 +15,7 @@ const updateTask = (req, res) => {
 }
 
 const deleteTask = (req, res) => {
-    res.send('delete task')
+    res.send({})
 }
 
 module.exports = {
