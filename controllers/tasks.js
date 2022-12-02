@@ -20,7 +20,7 @@ const createTask = async (req, res) => {
 
 const getTask = async (req, res) => {
     try {
-        const {id: taskID} = req.params
+        const { id: taskID } = req.params
         const task = await Task.findOne({ _id: taskID })
         if (!task) {
             return res.status(404).json({ message: `No task with id: ${taskID}` })
@@ -33,12 +33,18 @@ const getTask = async (req, res) => {
 }
 
 const updateTask = (req, res) => {
-    res.json({id: req.params.id})
+    try {
+        const { id: taskID } = req.params
+        
+        res.status(200).json({id: taskID, data: req.body})
+    } catch (error) {
+
+    }
 }
 
 const deleteTask = async (req, res) => {
     try {
-        const {id: taskID} = req.params
+        const { id: taskID } = req.params
         const task = await Task.findOneAndDelete({_id: taskID})
         if (!task) {
             return res.status(404).json({ message: `No task with id: ${taskID}` })
